@@ -1,5 +1,6 @@
 #= require trix/views/attachment_view
 #= require trix/views/previewable_attachment_view
+#= require trix/views/listenable_attachment_view
 
 {makeElement, findInnerElement, getTextConfig} = Trix
 
@@ -30,6 +31,9 @@ class Trix.PieceView extends Trix.ObjectView
   createAttachmentNodes: ->
     constructor = if @attachment.isPreviewable()
       Trix.PreviewableAttachmentView
+    else if @attachment.isListenable()
+      console.log "listenable"
+      Trix.ListenableAttachmentView
     else
       Trix.AttachmentView
 

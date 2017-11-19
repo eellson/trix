@@ -2,6 +2,7 @@
 
 class Trix.Attachment extends Trix.Object
   @previewablePattern: /^image(\/(gif|png|jpe?g)|$)/
+  @listenablePattern: /^audio(\/(aac|midi|ogg|x-wav|webm|mp4|wav)|$)/
 
   @attachmentForFile: (file) ->
     attributes = @attributesForFile(file)
@@ -52,6 +53,12 @@ class Trix.Attachment extends Trix.Object
       @attributes.get("previewable")
     else
       @constructor.previewablePattern.test(@getContentType())
+
+  isListenable: ->
+    if @attributes.has("listenable")
+      @attributes.get("listenable")
+    else
+      @constructor.listenablePattern.test(@getContentType())
 
   getType: ->
     if @hasContent()

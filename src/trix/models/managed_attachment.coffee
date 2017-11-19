@@ -14,6 +14,7 @@ class Trix.ManagedAttachment extends Trix.BasicObject
   @proxyMethod "attachment.setAttributes"
   @proxyMethod "attachment.isPending"
   @proxyMethod "attachment.isPreviewable"
+  @proxyMethod "attachment.isListenable"
   @proxyMethod "attachment.getURL"
   @proxyMethod "attachment.getHref"
   @proxyMethod "attachment.getFilename"
